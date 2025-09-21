@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carta - Flores Amarillas Dinámicas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #fffaf0;
+      --leaf:#2f8f4d;
+      --stem:#6b8b4b;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      background:#f3f4f6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:'Open Sans',system-ui,Arial;
+    }
+
+    .page{
+      width:700px;
+      max-width:90%;
+      min-height:80vh;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+      border-radius:8px;
+      background:linear-gradient(180deg,var(--bg),#fff);
+      text-align:center;
+    }
+
+    header h1{
+      font-family:'Great Vibes',cursive;
+      font-size:42px;
+      margin:0;
+      color:#c47a00;
+    }
+
+    .verse{max-width:80%;margin:14px auto;font-size:18px;line-height:1.4;color:#333}
+    .verse .line{display:block;margin:6px 0}
+
+    .bouquet-wrap{display:flex;justify-content:center;align-items:center;margin:14px 0}
+    .bouquet{width:320px;height:320px;position:relative;animation:sway 6s ease-in-out infinite;}
+
+    @keyframes sway{
+      0%{transform:rotate(0deg)}
+      25%{transform:rotate(1.8deg)}
+      50%{transform:rotate(0deg)}
+      75%{transform:rotate(-1.5deg)}
+      100%{transform:rotate(0deg)}
+    }
+
+    .petal-fall{position:absolute;left:50%;top:10%;width:10px;height:16px;border-radius:50% 50% 40% 40%;background:linear-gradient(180deg,#ffd84d,#f7b500);opacity:0.9;animation:fall 6s linear infinite}
+    .petal-fall.p1{left:35%;animation-delay:0s}
+    .petal-fall.p2{left:62%;animation-delay:1.2s}
+    .petal-fall.p3{left:52%;animation-delay:2.1s}
+    .petal-fall.p4{left:72%;animation-delay:0.6s}
+    .petal-fall.p5{left:20%;animation-delay:3s}
+
+    @keyframes fall{
+      0%{transform:translateY(-10vh) rotate(0deg);opacity:1}
+      100%{transform:translateY(60vh) rotate(360deg);opacity:0}
+    }
+
+    .caption{font-size:15px;color:#5b5b5b;margin-top:10px}
+    .signature{margin-top:20px;font-size:16px;color:#555}
+
+    .flower .petal{transform-origin:50% 75%;animation:bloom 2s ease-out forwards}
+    @keyframes bloom{
+      0%{transform:scale(0.08) rotate(-8deg);opacity:0}
+      60%{transform:scale(1.03) rotate(2deg);opacity:1}
+      100%{transform:scale(1) rotate(0deg);opacity:1}
+    }
+    .center-dot{filter:drop-shadow(0 2px 5px rgba(240,180,0,0.18))}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Para Laura...</h1>
+    </header>
+
+    <div class="verse">
+  <span class="line">Sé que no somos novios...</span>
+  <span class="line">Tenía planificado este día hace mucho...</span>
+  <span class="line">Pero no me olvidé de esto,<br>te debo muchas flores y muchos momentos</span>
+</div>
+
+
+    <div class="bouquet-wrap">
+      <div class="bouquet">
+        <div class="petal-fall p1"></div>
+        <div class="petal-fall p2"></div>
+        <div class="petal-fall p3"></div>
+        <div class="petal-fall p4"></div>
+        <div class="petal-fall p5"></div>
+
+        <svg viewBox="0 0 300 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="petalGrad" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#ffef7c" />
+              <stop offset="100%" stop-color="#f7b500" />
+            </linearGradient>
+            <linearGradient id="leafGrad" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#59b06b" />
+              <stop offset="100%" stop-color="#2f8f4d" />
+            </linearGradient>
+          </defs>
+
+          <!-- stems -->
+          <g stroke="var(--stem)" stroke-width="5" fill="none" stroke-linecap="round">
+            <path d="M150,190 C145,150 145,120 150,90"/>
+            <path d="M140,190 C135,150 135,120 120,100"/>
+            <path d="M160,190 C165,150 170,120 180,100"/>
+            <path d="M130,190 C125,150 120,120 110,120"/>
+            <path d="M170,190 C175,150 180,120 190,120"/>
+          </g>
+
+          <!-- leaves -->
+          <g fill="url(#leafGrad)">
+            <path d="M140 150 C120 160 100 140 110 130 C120 120 140 130 140 150 Z"/>
+            <path d="M160 150 C180 160 200 140 190 130 C180 120 160 130 160 150 Z"/>
+          </g>
+
+          <!-- flowers -->
+          <g class="flower">
+            <!-- centro -->
+            <g transform="translate(150,90)">
+              <ellipse class="petal" cx="0" cy="-20" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <circle cx="0" cy="-2" r="7" fill="#f1a500" class="center-dot"/>
+            </g>
+            <!-- izquierda -->
+            <g transform="translate(120,100) scale(0.9)">
+              <ellipse class="petal" cx="0" cy="-20" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <circle cx="0" cy="-2" r="7" fill="#f1a500" class="center-dot"/>
+            </g>
+            <!-- derecha -->
+            <g transform="translate(180,100) scale(0.9)">
+              <ellipse class="petal" cx="0" cy="-20" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <circle cx="0" cy="-2" r="7" fill="#f1a500" class="center-dot"/>
+            </g>
+            <!-- abajo izquierda -->
+            <g transform="translate(130,120) scale(0.8)">
+              <ellipse class="petal" cx="0" cy="-20" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <circle cx="0" cy="-2" r="7" fill="#f1a500" class="center-dot"/>
+            </g>
+            <!-- abajo derecha -->
+            <g transform="translate(170,120) scale(0.8)">
+              <ellipse class="petal" cx="0" cy="-20" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-16" cy="-6" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <ellipse class="petal" cx="-8" cy="12" rx="9" ry="20" fill="url(#petalGrad)"/>
+              <circle cx="0" cy="-2" r="7" fill="#f1a500" class="center-dot"/>
+            </g>
+          </g>
+
+          <!-- ribbon -->
+          <g transform="translate(150,190)">
+            <path d="M -30 30 C -18 42 18 42 30 30 L 28 52 C 10 60 -10 60 -28 52 Z" fill="#c43a5b"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="verse">
+  <span class="line">Solo quiero que sepas que te espero...</span>
+  <span class="line">Ya ven, ¿sí? Que quiero darte no solo flores amarillas,<br>flores de todos los colores del mundo...</span>
+</div>
+
+
+    <div class="caption">Un pequeño ramo que nunca se va a marchitar.</div>
+
+    <div class="signature">— Con amor, Santiago</div>
+  </div>
+</body>
+</html>
